@@ -1,14 +1,31 @@
+window.onload = init;
 var context;
-window.addEventListener('load', init, false);
+var bufferLoader;
+
 function init() {
-  try {
-    // Fix up for prefixing
-    window.AudioContext = window.AudioContext||window.webkitAudioContext;
-    context = new AudioContext();
-  }
-  catch(e) {
-    alert('Web Audio API is not supported in this browser');
-  }
+  context = new AudioContext();
+
+  bufferLoader = new BufferLoader(
+    context,
+    [
+      'sound/cello.mp3',
+      'sound/drums.mp3',
+    ],
+    finishedLoading
+    );
+
+  bufferLoader.load();
 }
 
-var dogBarkingBuffer = null;
+function finishedLoading(bufferList) {
+  // Create two sources and play them both together.
+  var source1 = context.createBufferSource();
+  var source2 = context.createBufferSource();
+  source1.buffer = bufferList[0];
+  source2.buffer = bufferList[1];
+
+  source1.connect(context.destination);
+  source2.connect(context.destination);
+  source1.start(0);
+  source2.start(0);
+}
