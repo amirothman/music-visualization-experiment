@@ -7,3 +7,7 @@
 # References
 
 https://www.bignerdranch.com/blog/music-visualization-with-d3-js/
+https://preziotte.com/blog/absurd-music-visualizers/
+https://blog.prototypr.io/get-started-with-the-web-audio-api-for-music-visualization-b6f594416a16#.i6lmvlpfe
+http://webaudioapi.com/samples/visualizer/
+https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API
