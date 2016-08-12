@@ -8,8 +8,8 @@ function init() {
   bufferLoader = new BufferLoader(
     context,
     [
-      'sound/cello.mp3',
-      'sound/drums.mp3',
+      '../sound/cello.mp3',
+      '../sound/drums.mp3',
     ],
     finishedLoading
     );
