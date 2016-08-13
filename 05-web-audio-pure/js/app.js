@@ -1,10 +1,13 @@
 window.onload = init;
 var context;
 var bufferLoader;
+var analyser;
+var frequencyData;
 
 function init() {
   context = new AudioContext();
-
+  frequencyData = new Uint8Array(200);
+  analyser = context.createAnalyser();
   bufferLoader = new BufferLoader(
     context,
     [
@@ -26,10 +29,14 @@ function finishedLoading(bufferList) {
     var source = context.createBufferSource();
     source.buffer = el;
     source.connect(context.destination);
-    var analyser = context.createAnalyser();
+    // console.log(source.buffer)
+    analyser = context.createAnalyser();
+    source.connect(analyser);
     source.start(0);
-    var freqDomain = new Float32Array(analyser.frequencyBinCount);
-    analyser.getFloatFrequencyData(freqDomain);
+    renderChart();
+    // analyser.getFloatTimeDomainData(timeDomain);
+
+
   });
 }
 
@@ -50,3 +57,9 @@ return window.requestAnimationFrame  ||
   window.setTimeout(callback, 1000 / 60);
 };
 })();
+
+function renderChart() {
+     analyser.getByteFrequencyData(frequencyData);
+    //  console.log(frequencyData);
+     requestAnimationFrame(renderChart);
+  }
