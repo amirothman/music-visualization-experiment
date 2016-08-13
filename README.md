@@ -1,8 +1,8 @@
-# Main Tasks
+# Music Visualization Experiment
 
-* Be able to play multitrack simultaneously
-* Bind sound properties to visual element
-* Bind multiple sound to multiple visual elements
+https://github.com/amirothman/music-visualization-experiment
+
+Here I experiment with some techniques to visualize audio using the web audio API.
 
 # References
 
