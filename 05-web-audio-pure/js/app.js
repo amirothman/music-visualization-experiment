@@ -6,8 +6,7 @@ var frequencyData;
 
 function init() {
   context = new AudioContext();
-  frequencyData = new Uint8Array(200);
-  analyser = context.createAnalyser();
+
   bufferLoader = new BufferLoader(
     context,
     [
@@ -31,6 +30,7 @@ function finishedLoading(bufferList) {
     source.connect(context.destination);
     // console.log(source.buffer)
     analyser = context.createAnalyser();
+    frequencyData = new Uint8Array(analyser.frequencyBinCount);
     source.connect(analyser);
     source.start(0);
     renderChart();
@@ -60,6 +60,6 @@ return window.requestAnimationFrame  ||
 
 function renderChart() {
      analyser.getByteFrequencyData(frequencyData);
-    //  console.log(frequencyData);
+     console.log(frequencyData);
      requestAnimationFrame(renderChart);
   }
