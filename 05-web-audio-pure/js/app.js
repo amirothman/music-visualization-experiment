@@ -8,9 +8,9 @@ function init() {
   bufferLoader = new BufferLoader(
     context,
     [
-      // '../sound/cello.mp3',
-      // '../sound/drums.mp3',
-      '../sound/korek_lubang_bontot_perut_senak.mp3'
+      '../sound/cello.mp3',
+      '../sound/drums.mp3',
+      // '../sound/korek_lubang_bontot_perut_senak.mp3'
     ],
     finishedLoading
     );
@@ -20,20 +20,17 @@ function init() {
 
 function finishedLoading(bufferList) {
   // Create two sources and play them both together.
-  var source1 = context.createBufferSource();
-  var source2 = context.createBufferSource();
-  source1.buffer = bufferList[0];
-  // source2.buffer = bufferList[1];
 
-  source1.connect(context.destination);
-  // source2.connect(context.destination);
+  bufferList.forEach(function(el,idx,arr){
 
-  var analyser = context.createAnalyser();
-
-  source1.start(0);
-  // source2.start(0);
-  var freqDomain = new Float32Array(analyser.frequencyBinCount);
-  analyser.getFloatFrequencyData(freqDomain);
+    var source = context.createBufferSource();
+    source.buffer = el;
+    source.connect(context.destination);
+    var analyser = context.createAnalyser();
+    source.start(0);
+    var freqDomain = new Float32Array(analyser.frequencyBinCount);
+    analyser.getFloatFrequencyData(freqDomain);
+  });
 }
 
 function getFrequencyValue(frequency) {
