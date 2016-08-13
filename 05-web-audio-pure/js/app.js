@@ -12,7 +12,7 @@ function init() {
     [
       '../sound/cello.mp3',
       '../sound/drums.mp3',
-      // '../sound/korek_lubang_bontot_perut_senak.mp3'
+      '../sound/korek_lubang_bontot_perut_senak.mp3'
     ],
     finishedLoading
     );
@@ -30,6 +30,7 @@ function finishedLoading(bufferList) {
     source.connect(context.destination);
     // console.log(source.buffer)
     analyser = context.createAnalyser();
+    // console.log(analyser.frequencyBinCount);
     frequencyData = new Uint8Array(analyser.frequencyBinCount);
     source.connect(analyser);
     source.start(0);
@@ -60,6 +61,6 @@ return window.requestAnimationFrame  ||
 
 function renderChart() {
      analyser.getByteFrequencyData(frequencyData);
-     console.log(frequencyData);
+    //  console.log(frequencyData);
      requestAnimationFrame(renderChart);
   }
