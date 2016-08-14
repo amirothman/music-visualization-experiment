@@ -4,7 +4,7 @@ var bufferLoader;
 var analyser;
 var frequencyData;
 
-var c10 = d3.scale.category10();
+
 var colorChart;
 
 function init() {

@@ -21,6 +21,7 @@ var context2d = canvas.node().getContext("2d");
 context2d.strokeStyle = "#666";
 context2d.strokeWidth = 0;
 context2d.globalAlpha = 0.5;
+var c10 = d3.scale.linear().domain([0,1024]).range(["#1f77b4","#d62728"]);
 // d3.timer(function() {
 //
 //
