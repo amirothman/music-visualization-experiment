@@ -1,7 +1,7 @@
 
 
-var width = 1400,
-    height = 800,
+var width = window.innerWidth*0.99,
+    height = window.innerHeight*0.99,
     angle = 2 * Math.PI;
 
 var x = d3.scale.linear()
