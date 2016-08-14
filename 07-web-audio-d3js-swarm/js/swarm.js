@@ -16,25 +16,13 @@ var canvas = d3.select("body").append("canvas")
     .attr("width", width)
     .attr("height", height);
 
-    var canvas2 = d3.select("body").append("canvas")
-        .attr("width", width)
-        .attr("height", height);
-
 var c10 = d3.scale.linear().domain([0,1024]).range(["#1f77b4","#d62728"]);
 var context2d = canvas.node().getContext("2d");
 
-context2d.strokeStyle = "#666";
+// context2d.strokeStyle = "#666";
 context2d.strokeWidth = 0;
 context2d.globalAlpha = 0.8;
 context2d.globalCompositeOperation = "screen";
-
-var context2d_2 = canvas2.node().getContext("2d");
-
-context2d_2.strokeStyle = "#666";
-context2d_2.strokeWidth = 0;
-context2d_2.globalAlpha = 0.8;
-context2d_2.globalCompositeOperation = "screen";
-
 
 var data = d3.range(1024).map(function() {
   return {xloc: 0, yloc: 0, xvel: 0, yvel: 0};
