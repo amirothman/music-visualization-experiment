@@ -4,6 +4,15 @@ https://github.com/amirothman/music-visualization-experiment
 
 Here I experiment with some techniques to visualize audio using the web audio API.
 
+# D3.js
+
+- http://bl.ocks.org/mbostock/2647922
+- http://bl.ocks.org/mbostock/929623
+
+# P5.js
+
+- https://github.com/therewasaguy/p5-music-viz
+
 # References
 
 - http://chimera.labs.oreilly.com/books/1234000001552/index.html
