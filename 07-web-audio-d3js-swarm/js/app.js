@@ -12,7 +12,8 @@ function init() {
     [
       // '../sound/cello.mp3',
       // '../sound/drums.mp3',
-      '../sound/korek_lubang_bontot_perut_senak.mp3'
+      // '../sound/korek_lubang_bontot_perut_senak.mp3'
+      "../sound/keris_dan_kerambit.mp3"
     ],
     finishedLoading
     );
